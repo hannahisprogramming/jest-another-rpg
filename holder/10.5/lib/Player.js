@@ -4,6 +4,7 @@ const Character = require('./Character');
 class Player extends Character {
   constructor(name = '') {
     super(name);
+
     this.inventory = [new Potion('health'), new Potion()];
   }
 
@@ -28,7 +29,7 @@ class Player extends Character {
   }
 
   usePotion(index) {
-    const potion = this.getInventory().splice(index, 1)[0];
+    const potion = this.inventory.splice(index, 1)[0];
 
     switch (potion.name) {
       case 'agility':
@@ -43,4 +44,5 @@ class Player extends Character {
     }
   }
 }
+
 module.exports = Player;
